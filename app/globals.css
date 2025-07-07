@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -91,4 +91,151 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Bootstrap-like utility classes */
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Government Header Styles */
+.top-gov-bar {
+    background-color: #002366;
+    color: white;
+    padding: 4px 0;
+    font-weight: 300;
+}
+
+.top-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.gov-text-group, .ministry-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.gov-text-group {
+    align-items: flex-end;
+}
+
+.ministry-text-group {
+    align-items: flex-start;
+}
+
+.hindi-text {
+    font-size: 0.6rem;
+    font-weight: 600;
+}
+
+.english-text {
+    font-size: 0.6rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.vertical-separator {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 28px;
+    margin: 0 10px;
+}
+
+.site-header {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 5px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-left {
+    position: absolute;
+    left: 10px;
+}
+
+.mha-logo {
+    height: 150px !important;
+    width: 150px !important;
+    object-fit: contain;
+}
+
+.i4c-logo {
+    height: 150px !important;
+    width: 150px !important;
+    object-fit: contain;
+}
+
+.cyberdost-logo {
+    height: 80px !important;
+    width: 80px !important;
+    object-fit: contain;
+}
+
+.azadi-logo {
+    height: 100px !important;
+    width: 100px !important;
+    object-fit: contain;
+}
+
+.title-container {
+    text-align: center;
+    padding: 0 5px;
+}
+
+.title-hindi {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #002366;
+    margin-bottom: 2px;
+}
+
+.title-container a {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #002366;
+    text-decoration: none;
+    display: block;
+}
+
+.title-container a:hover {
+    color: #1a237e;
+}
+
+.logo-right {
+    position: absolute;
+    right: 10px;
 }

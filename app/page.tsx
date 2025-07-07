@@ -1,470 +1,288 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Shield, Search, Database, Globe, Users, Lock, ArrowRight, CheckCircle, MapPin } from "lucide-react"
+import { Shield, Search, Database, Globe, Users, Lock, ArrowRight, CheckCircle, MapPin, AlertTriangle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Government Header */}
-      <div className="bg-[#1a237e] text-white py-3 px-4">
-        <div className="container mx-auto flex items-center justify-between text-sm">
-          <div className="flex items-center space-x-8">
-            <div className="flex items-center space-x-2">
-              <span className="font-medium">भारत सरकार</span>
-              <span className="text-blue-200">|</span>
-              <span className="font-medium">GOVERNMENT OF INDIA</span>
+      {/* Top Government Bar */}
+      <div className="top-gov-bar">
+        <div className="container-fluid">
+          <div className="top-bar-content">
+            <div className="gov-text-group">
+              <div className="hindi-text">भारत सरकार</div>
+              <div className="english-text">GOVERNMENT OF INDIA</div>
             </div>
-            <div className="flex items-center space-x-2">
-              <span className="font-medium">गृह मंत्रालय</span>
-              <span className="text-blue-200">|</span>
-              <span className="font-medium">MINISTRY OF HOME AFFAIRS</span>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <button className="w-8 h-8 border-2 border-white rounded flex items-center justify-center hover:bg-white hover:text-[#1a237e] transition-colors">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* I4C Header */}
-      <div className="bg-white border-b-2 border-[#1a237e] py-6 shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            {/* Left side - Government emblem and I4C logo */}
-            <div className="flex items-center space-x-6">
-              <div className="h-20 w-20 relative">
-                <Image
-                  src="/images/ministry-home-affairs-logo.svg"
-                  alt="Government of India"
-                  width={80}
-                  height={80}
-                  className="object-contain"
-                />
-              </div>
-              <div className="h-20 w-32 relative">
-                <Image
-                  src="/images/i4c-logo.png"
-                  alt="Indian Cybercrime Coordination Centre"
-                  width={128}
-                  height={80}
-                  className="object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Center - Main heading */}
-            <div className="text-center flex-1 px-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-[#1a237e] mb-2">भारतीय साइबर अपराध समन्वय केंद्र</h1>
-              <h2 className="text-xl md:text-2xl font-semibold text-[#1a237e]">
-                Indian Cybercrime Coordination Centre (I4C)
-              </h2>
-              <p className="text-sm text-gray-600 mt-2">सुरक्षित साइबरस्पेस • Working Together With Vigour</p>
-            </div>
-
-            {/* Right side - Circular logos */}
-            <div className="flex items-center space-x-4">
-              <div className="h-16 w-16 relative">
-                <Image
-                  src="/images/cyberdost-logo.png"
-                  alt="Cyber Dost"
-                  width={64}
-                  height={64}
-                  className="object-contain rounded-full"
-                />
-              </div>
-              <div className="h-16 w-16 relative">
-                <Image
-                  src="/images/azadi-logo.png"
-                  alt="Azadi Ka Amrit Mahotsav"
-                  width={64}
-                  height={64}
-                  className="object-contain"
-                />
-              </div>
+            <div className="vertical-separator"></div>
+            <div className="ministry-text-group">
+              <div className="hindi-text">गृह मंत्रालय</div>
+              <div className="english-text">MINISTRY OF HOME AFFAIRS</div>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Site Header */}
+      <header className="site-header">
+        <div className="container-fluid">
+          <div className="header-content">
+            <div className="logo-container logo-left">
+              <Image src="/images/ministry-home-affairs-logo.svg" alt="MHA Logo" className="mha-logo" width={120} height={120} />
+              <Image src="/images/i4c-logo.png" alt="I4C Logo" className="i4c-logo" width={120} height={120} />
+            </div>
+            <div className="title-container">
+              <div className="title-hindi">भारतीय साइबर अपराध समन्वय केंद्र</div>
+              <Link href="/">Indian Cybercrime Coordination Centre (I4C)</Link>
+            </div>
+            <div className="logo-container logo-right">
+              <Image src="/images/cyberdost-logo.png" alt="Cyber Dost Logo" className="cyberdost-logo" width={100} height={100} />
+              <Image src="/images/azadi-logo.png" alt="Azadi Ka Amrit Mahotsav Logo" className="azadi-logo" width={90} height={90} />
+            </div>
+          </div>
+        </div>
+      </header>
 
       {/* Main Navigation */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div>
-              <h1 className="text-xl font-bold text-[#1a237e]">OSINT Portal</h1>
-              <p className="text-xs text-gray-600">Intelligence Operations Center</p>
+      <header className="bg-gray-100 border-b border-gray-300">
+        <div className="container mx-auto px-4 py-2">
+          <nav className="flex items-center justify-between text-sm">
+            <div className="flex items-center space-x-6">
+              <Link href="#" className="text-gray-700 hover:text-[#002366] font-medium">Home</Link>
+              <Link href="#" className="text-gray-700 hover:text-[#002366] font-medium">Operations</Link>
+              <Link href="#" className="text-gray-700 hover:text-[#002366] font-medium">Reports</Link>
+              <Link href="#" className="text-gray-700 hover:text-[#002366] font-medium">Training</Link>
+              <Link href="#" className="text-gray-700 hover:text-[#002366] font-medium">Resources</Link>
             </div>
-          </div>
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link href="#features" className="text-gray-700 hover:text-[#1a237e] transition-colors font-medium">
-              Capabilities
-            </Link>
-            <Link href="#security" className="text-gray-700 hover:text-[#1a237e] transition-colors font-medium">
-              Security
-            </Link>
-            <Link href="#about" className="text-gray-700 hover:text-[#1a237e] transition-colors font-medium">
-              About I4C
-            </Link>
-            <Button asChild className="bg-[#1a237e] hover:bg-[#0d1b5e] text-white">
-              <Link href="/dashboard">Access Portal</Link>
-            </Button>
+            <div className="flex items-center space-x-4">
+              <span className="text-gray-600">Last Updated: {new Date().toLocaleDateString('en-IN')}</span>
+              <Button asChild className="bg-[#002366] hover:bg-[#001a4d] text-white text-xs px-4 py-1">
+                <Link href="/dashboard">Login</Link>
+              </Button>
+            </div>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-white">
-        <div className="container mx-auto text-center max-w-5xl">
-          <Badge variant="outline" className="mb-6 bg-[#1a237e] text-white border-[#1a237e] px-4 py-2">
-            <Lock className="w-4 h-4 mr-2" />
-            Classified - Government Use Only
-          </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold text-[#1a237e] mb-6 leading-tight">
-            Advanced OSINT
-            <span className="block text-[#1a237e]">Intelligence Platform</span>
-          </h1>
-          <p className="text-xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive Open Source Intelligence gathering and analysis platform designed for the Indian Cyber Crime
-            Coordination Centre (I4C) to combat cybercrime and enhance national cybersecurity.
+      {/* Alert Banner */}
+      <div className="bg-red-600 text-white py-2 px-4">
+        <div className="container mx-auto text-center">
+          <p className="text-sm font-medium">
+            <Lock className="w-4 h-4 inline mr-2" />
+            RESTRICTED ACCESS SYSTEM - Authorized Personnel Only | Report Security Incidents: cybercrime@gov.in
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild className="bg-[#1a237e] hover:bg-[#0d1b5e] text-white px-8 py-4 text-lg">
-              <Link href="/dashboard">
-                Launch Dashboard <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-[#1a237e] text-[#1a237e] hover:bg-[#1a237e] hover:text-white px-8 py-4 text-lg"
-            >
-              View Documentation
-            </Button>
-          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Features Section */}
-      <section id="features" className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1a237e] mb-6">Intelligence Capabilities</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Advanced tools and methodologies for effective open source intelligence gathering and cybercrime
-              investigation
+      {/* Main Content */}
+      <section className="py-8 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          {/* Welcome Section */}
+          <div className="mb-8">
+            <h1 className="text-2xl font-bold text-[#002366] mb-3">
+              National Digital Investigation Support Centre (NDISC)
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              The NDISC serves as the central hub for digital forensics and cybercrime investigation support 
+              within the Indian Cybercrime Coordination Centre (I4C). This portal provides authorized law 
+              enforcement agencies with access to specialized tools and resources for cybercrime investigation.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-gray-100 hover:border-[#1a237e] hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-50 group-hover:bg-[#1a237e] rounded-xl flex items-center justify-center mb-4 mx-auto transition-colors">
-                  <Search className="w-8 h-8 text-[#1a237e] group-hover:text-white transition-colors" />
-                </div>
-                <CardTitle className="text-[#1a237e] text-xl">Multi-Source Search</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Aggregate data from multiple open sources including social media, forums, and public databases for
-                  comprehensive intelligence gathering
+          {/* Quick Actions */}
+          <div className="grid md:grid-cols-4 gap-4 mb-8">
+            <Card className="border border-gray-200 hover:shadow-md transition-shadow">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm font-semibold text-[#002366] flex items-center">
+                  <Database className="w-4 h-4 mr-2" />
+                  Case Management
+                </CardTitle>
+                <CardDescription className="text-xs text-gray-600">
+                  Access active investigations and case files
                 </CardDescription>
               </CardHeader>
             </Card>
-
-            <Card className="border-2 border-gray-100 hover:border-[#1a237e] hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-50 group-hover:bg-[#1a237e] rounded-xl flex items-center justify-center mb-4 mx-auto transition-colors">
-                  <Database className="w-8 h-8 text-[#1a237e] group-hover:text-white transition-colors" />
-                </div>
-                <CardTitle className="text-[#1a237e] text-xl">Data Analytics</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Advanced analytics and pattern recognition for threat assessment and investigation support with
-                  AI-powered insights
+            
+            <Card className="border border-gray-200 hover:shadow-md transition-shadow">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm font-semibold text-[#002366] flex items-center">
+                  <Search className="w-4 h-4 mr-2" />
+                  Digital Evidence
+                </CardTitle>
+                <CardDescription className="text-xs text-gray-600">
+                  Submit and analyze digital evidence
                 </CardDescription>
               </CardHeader>
             </Card>
-
-            <Card className="border-2 border-gray-100 hover:border-[#1a237e] hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-50 group-hover:bg-[#1a237e] rounded-xl flex items-center justify-center mb-4 mx-auto transition-colors">
-                  <Globe className="w-8 h-8 text-[#1a237e] group-hover:text-white transition-colors" />
-                </div>
-                <CardTitle className="text-[#1a237e] text-xl">Geospatial Intelligence</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Location-based intelligence gathering with mapping and geographical analysis tools for spatial threat
-                  assessment
+            
+            <Card className="border border-gray-200 hover:shadow-md transition-shadow">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm font-semibold text-[#002366] flex items-center">
+                  <Shield className="w-4 h-4 mr-2" />
+                  Threat Analysis
+                </CardTitle>
+                <CardDescription className="text-xs text-gray-600">
+                  View current threat intelligence reports
                 </CardDescription>
               </CardHeader>
             </Card>
-
-            <Card className="border-2 border-gray-100 hover:border-[#1a237e] hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-50 group-hover:bg-[#1a237e] rounded-xl flex items-center justify-center mb-4 mx-auto transition-colors">
-                  <Users className="w-8 h-8 text-[#1a237e] group-hover:text-white transition-colors" />
-                </div>
-                <CardTitle className="text-[#1a237e] text-xl">Social Network Analysis</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Map relationships and connections between entities for comprehensive investigation and network
-                  visualization
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-2 border-gray-100 hover:border-[#1a237e] hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-50 group-hover:bg-[#1a237e] rounded-xl flex items-center justify-center mb-4 mx-auto transition-colors">
-                  <Shield className="w-8 h-8 text-[#1a237e] group-hover:text-white transition-colors" />
-                </div>
-                <CardTitle className="text-[#1a237e] text-xl">Threat Intelligence</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Real-time threat monitoring and intelligence feeds for proactive security measures and incident
-                  response
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-2 border-gray-100 hover:border-[#1a237e] hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-50 group-hover:bg-[#1a237e] rounded-xl flex items-center justify-center mb-4 mx-auto transition-colors">
-                  <Lock className="w-8 h-8 text-[#1a237e] group-hover:text-white transition-colors" />
-                </div>
-                <CardTitle className="text-[#1a237e] text-xl">Secure Operations</CardTitle>
-                <CardDescription className="text-gray-600">
-                  End-to-end encryption and secure data handling compliant with government security standards and
-                  protocols
+            
+            <Card className="border border-gray-200 hover:shadow-md transition-shadow">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm font-semibold text-[#002366] flex items-center">
+                  <Users className="w-4 h-4 mr-2" />
+                  Inter-Agency Coord
+                </CardTitle>
+                <CardDescription className="text-xs text-gray-600">
+                  Collaborate with partner agencies
                 </CardDescription>
               </CardHeader>
             </Card>
           </div>
-        </div>
-      </section>
 
-      {/* Security Section */}
-      <section id="security" className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge variant="outline" className="mb-6 bg-white text-[#1a237e] border-[#1a237e] px-4 py-2">
-                <Shield className="w-4 h-4 mr-2" />
-                Security First
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1a237e] mb-6">
-                Government-Grade Security Standards
-              </h2>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Built with the highest security standards to protect sensitive intelligence operations and maintain
-                operational security for government agencies and national cybersecurity initiatives.
-              </p>
-
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-[#1a237e] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#1a237e] text-lg mb-2">End-to-End Encryption</h3>
-                    <p className="text-gray-700">
-                      All data transmission and storage encrypted using AES-256 military-grade encryption standards
-                    </p>
-                  </div>
+          {/* System Status */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <Card className="border border-gray-200">
+              <CardHeader className="p-4 border-b bg-gray-50">
+                <CardTitle className="text-lg font-semibold text-[#002366]">System Status</CardTitle>
+              </CardHeader>
+              <div className="p-4 space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-700">Database Connectivity</span>
+                  <Badge className="bg-green-100 text-green-800 text-xs">Online</Badge>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-[#1a237e] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#1a237e] text-lg mb-2">Multi-Factor Authentication</h3>
-                    <p className="text-gray-700">
-                      Advanced authentication with biometric and token-based access control systems
-                    </p>
-                  </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-700">Forensic Tools</span>
+                  <Badge className="bg-green-100 text-green-800 text-xs">Operational</Badge>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-[#1a237e] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#1a237e] text-lg mb-2">Complete Audit Trail</h3>
-                    <p className="text-gray-700">
-                      Comprehensive logging and monitoring of all system activities for accountability
-                    </p>
-                  </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-700">Evidence Storage</span>
+                  <Badge className="bg-yellow-100 text-yellow-800 text-xs">89% Capacity</Badge>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-[#1a237e] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#1a237e] text-lg mb-2">Compliance Ready</h3>
-                    <p className="text-gray-700">
-                      Meets government security protocols and international data protection standards
-                    </p>
-                  </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-700">Network Security</span>
+                  <Badge className="bg-green-100 text-green-800 text-xs">Protected</Badge>
                 </div>
               </div>
-            </div>
+            </Card>
 
-            <div className="relative">
-              <div className="bg-[#1a237e] rounded-2xl p-8 text-white shadow-2xl">
-                <h3 className="text-2xl font-bold mb-8 text-center">Security Metrics</h3>
-                <div className="grid grid-cols-2 gap-8">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">256-bit</div>
-                    <div className="text-blue-200">Encryption</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">24/7</div>
-                    <div className="text-blue-200">Monitoring</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">99.9%</div>
-                    <div className="text-blue-200">Uptime</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">ISO 27001</div>
-                    <div className="text-blue-200">Certified</div>
-                  </div>
+            <Card className="border border-gray-200">
+              <CardHeader className="p-4 border-b bg-gray-50">
+                <CardTitle className="text-lg font-semibold text-[#002366]">Recent Notices</CardTitle>
+              </CardHeader>
+              <div className="p-4 space-y-3">
+                <div className="border-l-4 border-red-500 pl-3">
+                  <p className="text-xs font-medium text-gray-800">Security Advisory</p>
+                  <p className="text-xs text-gray-600">New phishing campaign targeting government domains. All personnel advised to verify email sources.</p>
+                  <p className="text-xs text-gray-500 mt-1">Posted: {new Date(Date.now() - 86400000).toLocaleDateString('en-IN')}</p>
+                </div>
+                <div className="border-l-4 border-blue-500 pl-3">
+                  <p className="text-xs font-medium text-gray-800">System Maintenance</p>
+                  <p className="text-xs text-gray-600">Scheduled maintenance window: Saturday 0200-0400 hrs.</p>
+                  <p className="text-xs text-gray-500 mt-1">Posted: {new Date(Date.now() - 172800000).toLocaleDateString('en-IN')}</p>
+                </div>
+                <div className="border-l-4 border-green-500 pl-3">
+                  <p className="text-xs font-medium text-gray-800">Training Update</p>
+                  <p className="text-xs text-gray-600">Digital forensics certification program applications now open.</p>
+                  <p className="text-xs text-gray-500 mt-1">Posted: {new Date(Date.now() - 259200000).toLocaleDateString('en-IN')}</p>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
-        </div>
-      </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-4 bg-white">
-        <div className="container mx-auto text-center max-w-5xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1a237e] mb-6">Developed for I4C Operations</h2>
-          <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            This OSINT platform has been specifically designed and developed to support the Indian Cyber Crime
-            Coordination Centre (I4C) under the Ministry of Home Affairs in their mission to combat cybercrime and
-            enhance national cybersecurity infrastructure across India.
-          </p>
+          {/* Statistics */}
+          <div className="grid md:grid-cols-4 gap-4 mb-8">
+            <Card className="border border-gray-200 text-center p-4">
+              <div className="text-2xl font-bold text-[#002366]">1,247</div>
+              <div className="text-xs text-gray-600">Active Cases</div>
+            </Card>
+            <Card className="border border-gray-200 text-center p-4">
+              <div className="text-2xl font-bold text-[#002366]">89</div>
+              <div className="text-xs text-gray-600">Agencies Connected</div>
+            </Card>
+            <Card className="border border-gray-200 text-center p-4">
+              <div className="text-2xl font-bold text-[#002366]">23.4TB</div>
+              <div className="text-xs text-gray-600">Evidence Processed</div>
+            </Card>
+            <Card className="border border-gray-200 text-center p-4">
+              <div className="text-2xl font-bold text-[#002366]">156</div>
+              <div className="text-xs text-gray-600">Training Sessions</div>
+            </Card>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-blue-50 group-hover:bg-[#1a237e] rounded-full flex items-center justify-center mx-auto mb-6 transition-colors">
-                <Shield className="w-10 h-10 text-[#1a237e] group-hover:text-white transition-colors" />
+          {/* Important Links */}
+          <div className="bg-gray-50 rounded-lg p-6 mb-8">
+            <h2 className="text-xl font-semibold text-[#002366] mb-4">Important Resources</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div>
+                <h3 className="font-medium text-gray-800 mb-2">Legal Framework</h3>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• Information Technology Act, 2000</li>
+                  <li>• Digital Personal Data Protection Act, 2023</li>
+                  <li>• Cybersecurity Guidelines</li>
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold text-[#1a237e] mb-4">National Security</h3>
-              <p className="text-gray-700">
-                Supporting India's cybersecurity infrastructure and protecting national digital assets
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-blue-50 group-hover:bg-[#1a237e] rounded-full flex items-center justify-center mx-auto mb-6 transition-colors">
-                <Search className="w-10 h-10 text-[#1a237e] group-hover:text-white transition-colors" />
+              <div>
+                <h3 className="font-medium text-gray-800 mb-2">Standard Procedures</h3>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• Evidence Collection Protocol</li>
+                  <li>• Chain of Custody Guidelines</li>
+                  <li>• Inter-agency Coordination SOPs</li>
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold text-[#1a237e] mb-4">Crime Investigation</h3>
-              <p className="text-gray-700">
-                Advanced tools for cybercrime investigation and digital forensics analysis
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-blue-50 group-hover:bg-[#1a237e] rounded-full flex items-center justify-center mx-auto mb-6 transition-colors">
-                <Database className="w-10 h-10 text-[#1a237e] group-hover:text-white transition-colors" />
+              <div>
+                <h3 className="font-medium text-gray-800 mb-2">Emergency Contacts</h3>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• Cyber Helpline: 1930</li>
+                  <li>• CERT-In: cert-in@nic.in</li>
+                  <li>• I4C Control Room: 24x7</li>
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold text-[#1a237e] mb-4">Intelligence Analysis</h3>
-              <p className="text-gray-700">
-                Comprehensive data analysis capabilities for threat assessment and prevention
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1a237e] text-white py-16 px-4">
+      <footer className="bg-[#002366] text-white py-8 px-4">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                  <Shield className="w-8 h-8 text-[#1a237e]" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">OSINT Portal</h3>
-                  <p className="text-blue-200">Ministry of Home Affairs - I4C</p>
-                </div>
-              </div>
-              <p className="text-blue-100 max-w-md leading-relaxed">
-                Advanced Open Source Intelligence platform for government operations and cybersecurity initiatives.
-                Protecting India's digital infrastructure through comprehensive intelligence gathering.
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-3">Indian Cybercrime Coordination Centre (I4C)</h3>
+              <p className="text-blue-200 text-sm leading-relaxed">
+                Ministry of Home Affairs, Government of India
+              </p>
+              <p className="text-blue-200 text-sm">
+                Securing India's Digital Infrastructure
               </p>
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-blue-100">
-                <li>
-                  <Link href="/dashboard" className="hover:text-white transition-colors flex items-center">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors flex items-center">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors flex items-center">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Support
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors flex items-center">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Training
-                  </Link>
-                </li>
+              <h4 className="font-semibold mb-3">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-blue-200">
+                <li><Link href="#" className="hover:text-white">Home</Link></li>
+                <li><Link href="#" className="hover:text-white">About I4C</Link></li>
+                <li><Link href="#" className="hover:text-white">Services</Link></li>
+                <li><Link href="#" className="hover:text-white">Contact</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-lg">Contact Information</h4>
-              <ul className="space-y-3 text-blue-100">
-                <li className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  I4C Headquarters
-                </li>
-                <li className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Ministry of Home Affairs
-                </li>
-                <li className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Government of India
-                </li>
-                <li className="text-red-300 font-medium flex items-center">
-                  <Lock className="w-4 h-4 mr-2" />
-                  Classified Access Only
-                </li>
-              </ul>
+              <h4 className="font-semibold mb-3">Security Notice</h4>
+              <div className="text-sm text-yellow-200 bg-red-900 p-3 rounded">
+                <AlertTriangle className="w-4 h-4 inline mr-2" />
+                This system is for authorized personnel only. Unauthorized access is prohibited.
+              </div>
             </div>
           </div>
 
-          <div className="border-t border-blue-800 mt-12 pt-8 text-center text-blue-200">
-            <p className="mb-2">&copy; 2024 Ministry of Home Affairs, Government of India. All rights reserved.</p>
-            <p className="text-sm">
-              This system is for authorized government personnel only. Unauthorized access is prohibited and will be
-              prosecuted.
-            </p>
+          <div className="border-t border-blue-800 mt-6 pt-6 text-center text-blue-200 text-sm">
+            <p>&copy; 2024 Ministry of Home Affairs, Government of India. All rights reserved.</p>
           </div>
         </div>
       </footer>
     </div>
   )
-}
+} 
